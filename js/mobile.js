@@ -134,7 +134,7 @@ function initializeMobile() {
         updateCards(0);
     }
 
-    // 카테고리 변경 시 프로젝트 목록 업데이트 함수
+    // 카테고리 변경 시 프로젝트 목록 업데이트 함수 수정
     function updateProjectsList(category) {
         currentCategory = category;
         projects = projectsData[category];
@@ -149,7 +149,7 @@ function initializeMobile() {
         
         // 현재 인덱스와 위치 초기화
         currentIndex = 0;
-        currentTranslate = 0; // -ITEM_HEIGHT에서 0으로 변경
+        currentTranslate = 0;
         updateWheel();
     }
 
@@ -190,16 +190,16 @@ function initializeMobile() {
         projectWheel.style.transform = `translateY(${currentTranslate}px)`;
     }
 
+    // 휠 업데이트 함수 수정
     function updateWheel() {
         const items = document.querySelectorAll('.project-item');
         const centerOffset = (projectList.offsetHeight - ITEM_HEIGHT) / 2;
 
-        // 무한 스크롤을 위한 위치 조정 (애니메이션 없이 즉시 이동)
         if (currentTranslate > ITEM_HEIGHT) {
-            projectWheel.style.transition = 'none'; // 애니메이션 제거
+            projectWheel.style.transition = 'none';
             currentTranslate -= (projects.length + 1) * ITEM_HEIGHT;
         } else if (currentTranslate < -(projects.length + 1) * ITEM_HEIGHT) {
-            projectWheel.style.transition = 'none'; // 애니메이션 제거
+            projectWheel.style.transition = 'none';
             currentTranslate += (projects.length + 1) * ITEM_HEIGHT;
         }
 
@@ -211,18 +211,21 @@ function initializeMobile() {
             
             item.classList.remove('active', 'nearby', 'far');
 
-            const realIndex = (index - 1 + projects.length) % projects.length; // 실제 인덱스 계산
+            // 실제 프로젝트 데이터의 인덱스 계산
+            const realIndex = (index - 1 + projects.length) % projects.length;
+            
+            // 현재 카테고리의 프로젝트 데이터 사용
             if (index > 0 && index < items.length - 1) {
-                item.textContent = projects[realIndex].title;
+                const project = projectsData[currentCategory][realIndex];
+                item.textContent = project.title;
             }
 
-            // 현재 위치에 따라 nearby 클래스 추가
             if (Math.abs(itemPosition - centerPosition) < ITEM_HEIGHT / 2) {
                 item.classList.add('active');
                 currentIndex = realIndex;
             } else if (
-                (index === 1 && currentIndex === projects.length - 1) || // 마지막 항목 아래 드래그
-                (index === projects.length + 1 && currentIndex === 0) || // 첫 번째 항목 위 드래그
+                (index === 1 && currentIndex === projects.length - 1) ||
+                (index === projects.length + 1 && currentIndex === 0) ||
                 Math.abs(itemPosition - (centerPosition - ITEM_HEIGHT)) < ITEM_HEIGHT / 2 ||
                 Math.abs(itemPosition - (centerPosition + ITEM_HEIGHT)) < ITEM_HEIGHT / 2
             ) {
@@ -233,12 +236,9 @@ function initializeMobile() {
         });
 
         projectWheel.style.transform = `translateY(${currentTranslate}px)`;
-        
-        // 강제 리플로우를 통해 transition 스타일 재설정
         projectWheel.offsetHeight;
         projectWheel.style.transition = 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)';
 
-        // 카드 업데이트 추가
         updateCards(currentIndex);
     }
 
