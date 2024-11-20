@@ -279,24 +279,6 @@ function initializeMobile() {
     // 프로젝트 스택 관련 코드 추가
     const projectStack = document.querySelector('.project-stack');
     
-    function createProjectCards() {
-        projects.forEach((project, index) => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.innerHTML = `
-                <a href="${project.link}" target="_blank" class="project-link">
-                    <div class="project-image" style="background-image: url('${project.image}')"></div>
-                    <div class="project-info">
-                        <p>${project.author}</p>
-                    </div>
-                </a>
-            `;
-            projectStack.appendChild(card);
-        });
-    
-        // 첫 번째 카드를 활성화
-        updateCards(0);
-    }
 
     function updateCards(activeIndex) {
         const cards = document.querySelectorAll('.project-card');
@@ -389,29 +371,6 @@ function initializeMobile() {
         });
     });
 
-    // 뷰 전환 함수
-    function setActiveView(viewType) {
-        const projectGridView = document.querySelector('.project-grid-view');
-        const projectListView = document.querySelector('.project-list-view');
-        const gridViewBtn = document.querySelector('.grid-view');
-        const listViewBtn = document.querySelector('.list-view');
-
-        if (viewType === 'grid') {
-            gridViewBtn.classList.add('active');
-            listViewBtn.classList.remove('active');
-            projectGridView.style.display = 'block';
-            projectListView.style.display = 'none';
-            
-            // 현재 선택된 카테고리에 맞는 그리드 표시
-            const currentCategory = document.querySelector('.category-text.active').textContent.toLowerCase();
-            toggleGrids(currentCategory);
-        } else {
-            gridViewBtn.classList.remove('active');
-            listViewBtn.classList.add('active');
-            projectGridView.style.display = 'none';
-            projectListView.style.display = 'block';
-        }
-    }
 
     // 초 상태 설정
     document.addEventListener('DOMContentLoaded', () => {
@@ -495,10 +454,6 @@ function initializeListView() {
     projectStack.innerHTML = '';
     createProjectCards();
 }
-
-// 뷰 전환 버튼 이벤트 리스너
-const gridViewBtn = document.querySelector('.grid-view');
-const listViewBtn = document.querySelector('.list-view');
 
 gridViewBtn.addEventListener('click', () => setActiveView('grid'));
 listViewBtn.addEventListener('click', () => setActiveView('list'));
