@@ -77,23 +77,25 @@ function initializeMobile() {
     let currentCategory = 'digital';
     let projects = projectsData[currentCategory];
 
-    // 카테고리 변경 시 프로젝트 목록 업데이트 함수
+    // 카테고리 변경 시 프로젝트 목록 업데이트 함수 수정
     function updateProjectsList(category) {
         currentCategory = category;
         projects = projectsData[category];
 
-        // 프로젝트 휠 업데이트
-        projectWheel.innerHTML = ''; // 기존 항목 제거
-        initializeWheel();
+        // 프로젝트 휠과 스택 초기화
+        projectWheel.innerHTML = '';
+        projectStack.innerHTML = '';
         
-        // 프로젝트 카드 업데이트
-        projectStack.innerHTML = ''; // 기존 카드 제거
-        createProjectCards();
-        
-        // 현재 인덱스와 위치 초기화
-        currentIndex = 0;
-        currentTranslate = 0; // -ITEM_HEIGHT에서 0으로 변경
-        updateWheel();
+        // 현재 카테고리의 프로젝트만 표시
+        if (category === currentCategory) {
+            initializeWheel();
+            createProjectCards();
+            
+            // 현재 인덱스와 위치 초기화
+            currentIndex = 0;
+            currentTranslate = 0;
+            updateWheel();
+        }
     }
 
     const ITEM_HEIGHT = 50;
@@ -352,27 +354,25 @@ function initializeMobile() {
         });
     });
 
-    // 뷰 전환 함수
+    // 뷰 전환 함수 수정
     function setActiveView(viewType) {
         const projectGridView = document.querySelector('.project-grid-view');
         const projectListView = document.querySelector('.project-list-view');
-        const gridViewBtn = document.querySelector('.grid-view');
-        const listViewBtn = document.querySelector('.list-view');
-
+        
         if (viewType === 'grid') {
-            gridViewBtn.classList.add('active');
-            listViewBtn.classList.remove('active');
             projectGridView.style.display = 'block';
             projectListView.style.display = 'none';
             
-            // 현재 선택된 카테고리에 맞는 그리드 표시
+            // 현재 카테고리에 맞는 그리드 표시
             const currentCategory = document.querySelector('.category-text.active').textContent.toLowerCase();
             toggleGrids(currentCategory);
         } else {
-            gridViewBtn.classList.remove('active');
-            listViewBtn.classList.add('active');
             projectGridView.style.display = 'none';
             projectListView.style.display = 'block';
+            
+            // 리스트 뷰 초기화
+            const currentCategory = document.querySelector('.category-text.active').textContent.toLowerCase();
+            updateProjectsList(currentCategory);
         }
     }
 
