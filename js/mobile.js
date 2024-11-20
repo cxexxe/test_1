@@ -460,4 +460,47 @@ const listViewBtn = document.querySelector('.list-view');
 gridViewBtn.addEventListener('click', () => setActiveView('grid'));
 listViewBtn.addEventListener('click', () => setActiveView('list'));
 
+document.addEventListener('DOMContentLoaded', () => {
+    // 세션 스토리지에서 이전 방문 여부 확인
+    const hasVisited = sessionStorage.getItem('hasVisitedWorks');
+    
+    // 카테고리 텍스트 요소들
+    const categoryTexts = document.querySelectorAll('.category-text');
+    
+    if (!hasVisited) {
+        // 첫 방문 시에만 Digital을 기본값으로 설정
+        categoryTexts.forEach(text => {
+            if (text.textContent.toLowerCase() === 'digital') {
+                text.classList.add('active');
+            } else {
+                text.classList.remove('active');
+            }
+        });
+        
+        // 방문 표시 저장
+        sessionStorage.setItem('hasVisitedWorks', 'true');
+    }
+
+    // 카테고리 전환 이벤트
+    categoryTexts.forEach(text => {
+        text.addEventListener('click', () => {
+            const category = text.textContent.toLowerCase();
+            
+            // 카테고리 텍스트 활성화
+            categoryTexts.forEach(t => t.classList.remove('active'));
+            text.classList.add('active');
+            
+            // 프로젝트 리스트 전환
+            document.querySelectorAll('.project-list').forEach(list => {
+                list.classList.remove('active');
+                if (list.classList.contains(category)) {
+                    list.classList.add('active');
+                }
+            });
+        });
+    });
+
+    // ... 나머지 코드는 그대로 유지
+});
+
 
