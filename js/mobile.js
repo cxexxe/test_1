@@ -55,27 +55,27 @@ function initializeMobile() {
             { id: 24, title: '크린나라 앱 리디자인', author: '황세희', image: 'images/works/황세희.png', link: 'https://drive.google.com/file/d/1j2KgnJsLtmfSR2nEsCLlLPtj3R-u2nWt/view?usp=sharing' }
         ],
         visual: [
-            { id: 1, title: 'ANAKNE(굿즈디자인)', author: '강찬우', image: 'images/works/강찬우.jpg', link: 'https://drive.google.com/file/d/1-5p2puEUfejx0NdwvQJxGycwxog3qRJb/view?usp=sharing' },
-            { id: 2, title: '제주여행', author: '김승빈', image: 'images/works/김승빈.png', link: 'https://drive.google.com/file/d/1QDHBKdcCQEl1Hz57p1gNmFfiEW_wFBVI/view?usp=sharing' },
-            { id: 3, title: '하이트 100주년', author: '박경호', image: 'images/works/박경호.jpg', link: 'https://drive.google.com/file/d/1JYEX7Bb5MKqITndgL7u1z4ZebisUwOf2/view?usp=sharing' },
-            { id: 4, title: 'Portfolio', author: '박윤민', image: 'images/works/박윤민.jpg', link: 'https://drive.google.com/file/d/1GHANHtrOuKIimBnNvmxxaisrj8jZWoqR/view?usp=sharing' },
-            { id: 5, title: 'Graphic Design', author: '송다은', image: 'images/works/송다은.jpg', link: 'https://drive.google.com/file/d/1TGk503galsrlou9JpzQZFfuclXPf5lGH/view?usp=sharing' },
-            { id: 6, title: '여우의 하루', author: '송민서', image: 'images/works/송민서.jpg', link: 'https://drive.google.com/file/d/1-WOBK5PiuGfcgHSMhsClkyd0uP1L-w55/view?usp=sharing' },
-            { id: 7, title: 'portfolio', author: '윤혜원', image: 'images/works/윤혜원.jpg', link: 'https://drive.google.com/file/d/1YFjJnD5ciFTtqYTzta2BL_8t7-Xp0rOF/view?usp=sharing' },
-            { id: 8, title: 'portfolio', author: '이동현', image: 'images/works/이동현.jpg', link: 'https://drive.google.com/file/d/1CVCFoFOQ5fOGc9yDPeYqnqYB5LsA6tmY/view?usp=sharing' },
-            { id: 9, title: 'Portfolio', author: '이연지', image: 'images/works/이연지.jpg', link: 'https://drive.google.com/file/d/1SsdhXXvdTcAYCNwNaOJkCKaeZ4ZlWVVW/view?usp=sharing' },
-            { id: 10, title: '앨범 리디자인', author: '이영은', image: 'images/works/이영은.jpg', link: 'https://drive.google.com/file/d/1TP5jZgFGUddZTncCX4OYllb-6rPLeLFc/view?usp=sharing' },
-            { id: 11, title: '브랜드 B.I디자인', author: '이재원', image: 'images/works/이재원.jpg', link: 'https://drive.google.com/file/d/1pAGVclxw72Iv2w8pRNQhFIkzO-XoFMy7/view?usp=sharing' },
-            { id: 12, title: '월인석봉에디션', author: '임재형', image: 'images/works/임재형.jpg', link: 'https://drive.google.com/file/d/1r_Nc5pBIytnpiUyiO30-uzF3cxF7tlr8/view?usp=sharing' },
-            { id: 13, title: '킹부각 (패키지 디자인)', author: '정회강', image: 'images/works/정회강.jpg', link: 'https://drive.google.com/file/d/1ZtJoyxB2d-WY2_Z2Z-FHbLpusA1pg8ti/view?usp=sharing' },
-            { id: 14, title: '바라의 하루', author: '최민주', image: 'images/works/최민주.jpg', link: 'https://drive.google.com/file/d/149bOHSebmTfuqB5cDmzQu0a0oVgRa3ER/view?usp=sharing' },
-            { id: 15, title: '자수롭게(로고, 굿즈디자인)', author: '한병헌', image: 'images/works/한병헌.jpg', link: 'https://drive.google.com/file/d/1Z9zKmaU519uUduZqhRglceRT5Zp2GRty/view?usp=sharing' },
-            { id: 16, title: 'Portfolio', author: '허준우', image: 'images/works/허준우.jpg', link: 'https://drive.google.com/file/d/1O03MhrdLF11GXe7JPpNPPtUOCfKKBzN6/view?usp=sharing' }
+            { id: 25, title: 'ANAKNE(굿즈디자인)', author: '강찬우', image: 'images/works/강찬우.jpg', link: 'https://drive.google.com/file/d/1-5p2puEUfejx0NdwvQJxGycwxog3qRJb/view?usp=sharing' },
+            { id: 26, title: '제주여행', author: '김승빈', image: 'images/works/김승빈.png', link: 'https://drive.google.com/file/d/1QDHBKdcCQEl1Hz57p1gNmFfiEW_wFBVI/view?usp=sharing' },
+            { id: 27, title: '하이트 100주년', author: '박경호', image: 'images/works/박경호.jpg', link: 'https://drive.google.com/file/d/1JYEX7Bb5MKqITndgL7u1z4ZebisUwOf2/view?usp=sharing' },
+            { id: 28, title: 'Portfolio', author: '박윤민', image: 'images/works/박윤민.jpg', link: 'https://drive.google.com/file/d/1GHANHtrOuKIimBnNvmxxaisrj8jZWoqR/view?usp=sharing' },
+            { id: 29, title: 'Graphic Design', author: '송다은', image: 'images/works/송다은.jpg', link: 'https://drive.google.com/file/d/1TGk503galsrlou9JpzQZFfuclXPf5lGH/view?usp=sharing' },
+            { id: 30, title: '여우의 하루', author: '송민서', image: 'images/works/송민서.jpg', link: 'https://drive.google.com/file/d/1-WOBK5PiuGfcgHSMhsClkyd0uP1L-w55/view?usp=sharing' },
+            { id: 31, title: 'portfolio', author: '윤혜원', image: 'images/works/윤혜원.jpg', link: 'https://drive.google.com/file/d/1YFjJnD5ciFTtqYTzta2BL_8t7-Xp0rOF/view?usp=sharing' },
+            { id: 32, title: 'portfolio', author: '이동현', image: 'images/works/이동현.jpg', link: 'https://drive.google.com/file/d/1CVCFoFOQ5fOGc9yDPeYqnqYB5LsA6tmY/view?usp=sharing' },
+            { id: 33, title: 'Portfolio', author: '이연지', image: 'images/works/이연지.jpg', link: 'https://drive.google.com/file/d/1SsdhXXvdTcAYCNwNaOJkCKaeZ4ZlWVVW/view?usp=sharing' },
+            { id: 34, title: '앨범 리디자인', author: '이영은', image: 'images/works/이영은.jpg', link: 'https://drive.google.com/file/d/1TP5jZgFGUddZTncCX4OYllb-6rPLeLFc/view?usp=sharing' },
+            { id: 35, title: '브랜드 B.I디자인', author: '이재원', image: 'images/works/이재원.jpg', link: 'https://drive.google.com/file/d/1pAGVclxw72Iv2w8pRNQhFIkzO-XoFMy7/view?usp=sharing' },
+            { id: 36, title: '월인석봉에디션', author: '임재형', image: 'images/works/임재형.jpg', link: 'https://drive.google.com/file/d/1r_Nc5pBIytnpiUyiO30-uzF3cxF7tlr8/view?usp=sharing' },
+            { id: 37, title: '킹부각 (패키지 디자인)', author: '정회강', image: 'images/works/정회강.jpg', link: 'https://drive.google.com/file/d/1ZtJoyxB2d-WY2_Z2Z-FHbLpusA1pg8ti/view?usp=sharing' },
+            { id: 38, title: '바라의 하루', author: '최민주', image: 'images/works/최민주.jpg', link: 'https://drive.google.com/file/d/149bOHSebmTfuqB5cDmzQu0a0oVgRa3ER/view?usp=sharing' },
+            { id: 39, title: '자수롭게(로고, 굿즈디자인)', author: '한병헌', image: 'images/works/한병헌.jpg', link: 'https://drive.google.com/file/d/1Z9zKmaU519uUduZqhRglceRT5Zp2GRty/view?usp=sharing' },
+            { id: 40, title: 'Portfolio', author: '허준우', image: 'images/works/허준우.jpg', link: 'https://drive.google.com/file/d/1O03MhrdLF11GXe7JPpNPPtUOCfKKBzN6/view?usp=sharing' }
         ]
     };
 
     let currentCategory = 'digital';
-    let projects = projectsData[currentCategory];
+    let projects = projectsData['digital'];
 
     let activeProjectId = null;
 
@@ -134,17 +134,18 @@ function initializeMobile() {
         updateCards(0);
     }
 
-    // 카테고리 변경 시 프로젝트 목록 업데이트 함수 수정
+    // 카테고리 변경 함수 수정
     function updateProjectsList(category) {
+        // data-category 값으로 프로젝트 데이터 선택
         currentCategory = category;
         projects = projectsData[category];
 
-        // 프로젝트 휠 업데이트
-        projectWheel.innerHTML = ''; // 기존 항목 제거
+        // 프로젝트 휠 초기화 및 업데이트
+        projectWheel.innerHTML = '';
         initializeWheel();
         
-        // 프로젝트 카드 업데이트
-        projectStack.innerHTML = ''; // 기존 카드 제거
+        // 프로젝트 스택 초기화 및 업데이트
+        projectStack.innerHTML = '';
         createProjectCards();
         
         // 현재 인덱스와 위치 초기화
@@ -392,6 +393,7 @@ function initializeMobile() {
         }
     }
 
+    // 카테고리 클릭 이벤트 리스너 수정
     categoryTexts.forEach(text => {
         text.addEventListener('click', () => {
             if (text.classList.contains('active')) return;
@@ -400,11 +402,9 @@ function initializeMobile() {
             categoryTexts.forEach(t => t.classList.remove('active'));
             text.classList.add('active');
             
-            // 현재 선택된 카테고리에 따라 그리드 전환
-            const category = text.textContent.toLowerCase();
+            // data-category 속성값으로 프로젝트 데이터 업데이트
+            const category = text.dataset.category;
             toggleGrids(category);
-            
-            // 리스트 뷰 업데이트
             updateProjectsList(category);
         });
     });
