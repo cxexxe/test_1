@@ -1,3 +1,16 @@
+let startY = 0;
+
+document.addEventListener('touchstart', function (event) {
+    startY = event.touches[0].clientY;
+}, { passive: false });
+
+document.addEventListener('touchmove', function (event) {
+    const currentY = event.touches[0].clientY;
+    if (window.scrollY === 0 && currentY > startY) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
 function initializeMobile() {
     console.log('Mobile JS loaded');
     
@@ -446,91 +459,5 @@ const listViewBtn = document.querySelector('.list-view');
 
 gridViewBtn.addEventListener('click', () => setActiveView('grid'));
 listViewBtn.addEventListener('click', () => setActiveView('list'));
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth > 480) return;
-
-    // 전체 문서의 터치 이벤트 제어
-    document.body.addEventListener('touchstart', function(e) {
-        startY = e.touches[0].clientY;
-    }, { passive: false });
-
-    document.body.addEventListener('touchmove', function(e) {
-        const moveY = e.touches[0].clientY;
-        const diff = moveY - startY;
-
-        // 맨 위에서 아래로 당기는 경우 새로고침 방지
-        if (window.scrollY === 0 && diff > 0) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-
-    const projectWheel = document.querySelector('.project-wheel');
-    let startY = 0;
-    let currentIndex = 0;
-    let isDragging = false;
-
-    // 프로젝트 휠의 터치 이벤트
-    projectWheel.addEventListener('touchstart', touchStart, { passive: false });
-    projectWheel.addEventListener('touchmove', touchMove, { passive: false });
-    projectWheel.addEventListener('touchend', touchEnd);
-
-    function touchStart(event) {
-        event.preventDefault(); // 기본 동작 방지
-        startY = event.touches[0].clientY;
-        isDragging = true;
-        projectWheel.style.transition = 'none';
-    }
-
-    function touchMove(event) {
-        if (!isDragging) return;
-        
-        event.preventDefault(); // 기본 동작 방지
-        const currentY = event.touches[0].clientY;
-        const diff = currentY - startY;
-        
-        // 아래로 드래그할 때만 작동 (diff > 0)
-        if (diff > 20) {
-            const items = document.querySelectorAll('.project-item');
-            if (currentIndex < items.length - 1) {
-                updateProjectWheel(1);
-                isDragging = false;
-            }
-        }
-    }
-
-    function touchEnd(event) {
-        isDragging = false;
-        projectWheel.style.transition = 'transform 0.3s cubic-bezier(0.21, 0.53, 0.29, 0.99)';
-    }
-
-    // CSS 동적 추가
-    const style = document.createElement('style');
-    style.textContent = `
-        html, body {
-            overscroll-behavior: none;
-            overscroll-behavior-y: none;
-            overflow: hidden;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-        }
-        .contents {
-            height: 100%;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // 나머지 함수들은 그대로 유지
-    function updateProjectWheel(direction) {
-        // ... 기존 코드 유지 ...
-    }
-
-    function updateProjectCard(index) {
-        // ... 기존 코드 유지 ...
-    }
-});
 
 
