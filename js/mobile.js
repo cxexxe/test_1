@@ -112,28 +112,6 @@ function initializeMobile() {
         // activeProjectId를 사용하여 리스트 뷰 업데이트
     }
 
-    // 프로젝트 카드 생성 시 클릭 이벤트 추가
-    function createProjectCards() {
-        projects.forEach((project, index) => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.id = `project-${project.id}`; // 고유 ID 사용
-            card.innerHTML = `
-                <a href="${project.link}" target="_blank" class="project-link">
-                    <div class="project-image" style="background-image: url('${project.image}')"></div>
-                    <div class="project-info">
-                        <p>${project.author}</p>
-                    </div>
-                </a>
-            `;
-            card.addEventListener('click', () => handleProjectClick(project.id));
-            projectStack.appendChild(card);
-        });
-
-        // 첫 번째 카드를 활성화
-        updateCards(0);
-    }
-
     // 카테고리 변경 함수 수정
     function updateProjectsList(category) {
         currentCategory = category;
