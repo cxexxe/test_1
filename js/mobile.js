@@ -136,9 +136,11 @@ function initializeMobile() {
 
     // 카테고리 변경 함수 수정
     function updateProjectsList(category) {
-        // data-category 값으로 프로젝트 데이터 선택
         currentCategory = category;
         projects = projectsData[category];
+        
+        // 카테고리 상태 저장
+        sessionStorage.setItem('currentCategory', category);
 
         // 프로젝트 휠 초기화 및 업데이트
         projectWheel.innerHTML = '';
@@ -439,8 +441,25 @@ function initializeMobile() {
         toggleGrids(initialCategory);
     });
 
-    // 초기화 시 기본 카테고리(Digital) 데이터로 시작
-    projects = projectsData.digital;
+    // 현재 선택된 카테고리 확인
+    const activeCategory = document.querySelector('.category-text.active').dataset.category;
+    
+    // 첫 페이지 로드인지 확인하기 위한 세션 스토리지 체크
+    const isFirstLoad = !sessionStorage.getItem('hasLoaded');
+    
+    if (isFirstLoad) {
+        // 첫 로드 시에는 digital을 기본값으로 설정
+        currentCategory = 'digital';
+        projects = projectsData['digital'];
+        sessionStorage.setItem('hasLoaded', 'true');
+    } else {
+        // 이후에는 현재 선택된 카테고리 유지
+        currentCategory = activeCategory;
+        projects = projectsData[activeCategory];
+    }
+
+    // 프로젝트 초기화
+    updateProjectsList(currentCategory);
 }
 
 // DOMContentLoaded 이벤트에서 초기화
@@ -449,11 +468,13 @@ document.addEventListener('DOMContentLoaded', initializeMobile);
 // resize 이벤트에서도 초기화
 let resizeTimer;
 window.addEventListener('resize', () => {
-    // 디바운싱 적용
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
+        // 현재 선택된 카테고리 유지
+        const currentCategory = sessionStorage.getItem('currentCategory') || 'digital';
+        projects = projectsData[currentCategory];
         initializeMobile();
-    }, 250); // 250ms 딜레이
+    }, 250);
 });
 
 
